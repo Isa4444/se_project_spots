@@ -131,6 +131,10 @@
     margin-top: 20px;
   }
 
+  .profile__edit-btn {
+    align-self: center;
+  }
+
   .profile__add-btn {
     height: 52px;
     min-width: calc(100vw - 32px);
