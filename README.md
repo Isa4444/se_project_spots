@@ -23,7 +23,7 @@ It displays a **user profile section** and a **gallery of cards**, adapting seam
 
 ### Video Submission
 
-- [▶ Watch the Project Walkthrough]([(https://go.screenpal.com/watch/cTjhbInIdmA]))
+- [▶ Watch the Project Walkthrough](https://go.screenpal.com/watch/cTjhbInIdmA)
 
 In the video, I demonstrate:
 1. Opening the web page in a browser and overviewing the layout
