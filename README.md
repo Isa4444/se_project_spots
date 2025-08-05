@@ -1,3 +1,7 @@
+### 🚀 Live Demo  
+[View Project on GitHub Pages](https://isa4444.github.io/se_project_spots/)
+
+
 # Project 3: Spots
 
 ### Overview
