@@ -113,7 +113,75 @@
           </ul>
         </section>
       </main>
+
       <footer class="footer">2025 © Spots</footer>
+
+      <div class="modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn" aria-label="Close">
+            X
+          </button>
+          <h2 class="modal__title">Edit profile</h2>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">
+              Name
+              <input
+                id="profile-name-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+                required
+              />
+            </label>
+
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input
+                id="profile-description-input"
+                type="text"
+                class="modal__input"
+                placeholder="Description"
+                required
+              />
+            </label>
+
+            <button type="submit" class="modal__submit-btn" disabled>
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+       <div class="modal modal_is-opened" id="modal-post">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn" aria-label="Close">X</button>
+          <h2 class="modal__title">New post</h2>
+          <form class="modal__form">
+            <label for="post-title-input" class="modal__label">
+              Title
+              <input
+                id="post-title-input"
+                type="text"
+                class="modal__input"
+                placeholder="Title"
+                required
+              />
+            </label>
+
+            <label for="post-link-input" class="modal__label">
+              Image link
+              <input
+                id="post-link-input"
+                type="url"
+                class="modal__input"
+                placeholder="https://…"
+                required
+              />
+            </label>
+
+            <button type="submit" class="modal__submit-btn" disabled>Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
