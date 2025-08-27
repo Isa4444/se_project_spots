@@ -17,46 +17,49 @@ const editSubmit = editProfileModal.querySelector(".modal__submit-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostSubmit = newPostModal.querySelector(".modal__submit-btn");
 
-editProfileBtn.addEventListener("click", function () {
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
+editProfileBtn.addEventListener("click", () => {
   nameInput.value = profileName.textContent.trim();
   aboutInput.value = profileAbout.textContent.trim();
   editSubmit.disabled = !editForm.checkValidity();
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
-});
+editProfileCloseBtn.addEventListener("click", () => closeModal(editProfileModal));
 
-newPostBtn.addEventListener("click", function () {
+newPostBtn.addEventListener("click", () => {
   newPostSubmit.disabled = !newPostForm.checkValidity();
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 
-newPostCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
-});
+newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
 
-editForm.addEventListener("submit", function (e) {
+editForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
   editForm.reset();
 });
 
-newPostForm.addEventListener("submit", function (e) {
+newPostForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(newPostForm).entries());
   console.log("New Post form:", data);
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
   newPostForm.reset();
 });
 
-editForm.addEventListener("input", function () {
+editForm.addEventListener("input", () => {
   editSubmit.disabled = !editForm.checkValidity();
 });
 
-newPostForm.addEventListener("input", function () {
+newPostForm.addEventListener("input", () => {
   newPostSubmit.disabled = !newPostForm.checkValidity();
 });

@@ -126,7 +126,7 @@
   .profile__details {
     align-items: center;
     flex-grow: 1;
-    min-width: calc(100vw - 32px);
+    min-width: calc(100vw - 40px);
   }
 
   .profile__container-btn {

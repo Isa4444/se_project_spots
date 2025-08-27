@@ -1,5 +1,7 @@
 .modal {
+  opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -10,10 +12,13 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal_is-opened {
+  opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal__container {
