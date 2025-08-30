@@ -17,6 +17,13 @@ const editSubmit = editProfileModal.querySelector(".modal__submit-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostSubmit = newPostModal.querySelector(".modal__submit-btn");
 
+const newFormTitleInput = newPostModal.querySelector(
+  ".modal__input_type_title"
+);
+const newFormImageInput = newPostModal.querySelector(
+  ".modal__input_type_image"
+);
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -31,7 +38,9 @@ editProfileBtn.addEventListener("click", () => {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", () => closeModal(editProfileModal));
+editProfileCloseBtn.addEventListener("click", () =>
+  closeModal(editProfileModal)
+);
 
 newPostBtn.addEventListener("click", () => {
   newPostSubmit.disabled = !newPostForm.checkValidity();
@@ -50,8 +59,10 @@ editForm.addEventListener("submit", (e) => {
 
 newPostForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(newPostForm).entries());
-  console.log("New Post form:", data);
+
+  console.log(newFormTitleInput.value);
+  console.log(newFormImageInput.value);
+
   closeModal(newPostModal);
   newPostForm.reset();
 });
