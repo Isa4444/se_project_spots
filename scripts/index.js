@@ -3,7 +3,9 @@ const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
-const newPostModal = document.querySelector("#new-modal-post");
+const newPostModal =
+  document.querySelector("#new-post-modal") ||
+  document.querySelector("#new-modal-post");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const profileName = document.querySelector(".profile__name");
@@ -17,12 +19,13 @@ const editSubmit = editProfileModal.querySelector(".modal__submit-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostSubmit = newPostModal.querySelector(".modal__submit-btn");
 
-const newFormTitleInput = newPostModal.querySelector(
-  ".modal__input_type_title"
-);
-const newFormImageInput = newPostModal.querySelector(
-  ".modal__input_type_image"
-);
+const newFormTitleInput =
+  newPostForm.querySelector(".modal__input_type_title") ||
+  newPostForm.querySelector('input[name="name"]');
+const newFormImageInput =
+  newPostForm.querySelector(".modal__input_type_link") ||
+  newPostForm.querySelector(".modal__input_type_image") ||
+  newPostForm.querySelector('input[name="link"]');
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -38,9 +41,7 @@ editProfileBtn.addEventListener("click", () => {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", () =>
-  closeModal(editProfileModal)
-);
+editProfileCloseBtn.addEventListener("click", () => closeModal(editProfileModal));
 
 newPostBtn.addEventListener("click", () => {
   newPostSubmit.disabled = !newPostForm.checkValidity();
@@ -59,10 +60,8 @@ editForm.addEventListener("submit", (e) => {
 
 newPostForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  console.log(newFormTitleInput.value);
-  console.log(newFormImageInput.value);
-
+  console.log(newFormTitleInput ? newFormTitleInput.value : "");
+  console.log(newFormImageInput ? newFormImageInput.value : "");
   closeModal(newPostModal);
   newPostForm.reset();
 });
